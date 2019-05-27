@@ -1,0 +1,11 @@
+<div *ngIf="project" class="projects">
+  <h2>{{project.prod_name | uppercase}} Details</h2>
+  <div><span>Description: </span>{{project.prod_desc}}</div>
+  <div><span>Price: </span>{{project.prod_price}}</div>
+  <div><span>Update Date: </span>{{project.updated_at | date}}</div>
+  <div>
+    <button routerLink="/project-edit/{{project._id}}">
+      Edit
+    </button>
+  </div>
+</div>

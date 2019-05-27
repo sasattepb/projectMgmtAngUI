@@ -1,0 +1,49 @@
+<h2>Project Manager</h2>
+
+<div>
+ 
+  <button (click)="addTask()">
+    Add Task
+  </button>  
+  <button (click)="addUser()">
+    Add User
+  </button>   
+  <button (click)="addTask()">
+    View Task
+  </button> 
+    
+</div>
+
+<div>
+  <h2>Add Project</h2>
+  <div>
+    <label>Project:
+      <input [(ngModel)]="projectData.project" placeholder="Project"/>
+    </label><br>
+    <label>Start Date:
+      <input [(ngModel)]="projectData.startDate" placeholder="Start Date"/>
+    </label><br>
+    <label>End Date:
+      <input [(ngModel)]="projectData.endDate" placeholder="End Date"/>
+    </label><br>
+    <label>Priority:
+      <input [(ngModel)]="projectData.priority" placeholder="Priority"/>
+    </label><br>    
+  </div>
+  <br>
+  <button (click)="addProject()">Add</button>
+  <button (click)="addProject()">Reset</button>
+</div>
+
+<ul class="projects">
+  <li *ngFor="let p of projects; let i=index;">
+    <a routerLink="/project-details/{{p.projectId}}">
+      <span class="badge">{{i+1}}</span> {{p.project}}
+      <span class="badge">{{i+1}}</span> {{p.startDate}}
+      <span class="badge">{{i+1}}</span> {{p.endDate}}
+      <span class="badge">{{i+1}}</span> {{p.priority}}
+    </a>
+    <button class="delete" title="delete project"
+      (click)="delete(p.projectId)">x</button>
+  </li>
+</ul>

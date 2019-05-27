@@ -1,0 +1,15 @@
+<div>
+  <h2>Project Edit</h2>
+  <div>
+    <label>Project Name:
+      <input [(ngModel)]="projectData.prod_name" placeholder="Project Name"/>
+    </label><br>
+    <label>Project Desc:
+      <input [(ngModel)]="projectData.prod_desc" placeholder="Project Description"/>
+    </label><br>
+    <label>Project Price:
+      <input [(ngModel)]="projectData.prod_price" placeholder="Project Price"/>
+    </label><br>
+  </div>
+  <button (click)="updateProject()">Update</button>
+</div>
