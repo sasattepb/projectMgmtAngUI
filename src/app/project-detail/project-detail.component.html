@@ -1,10 +1,11 @@
 <div *ngIf="project" class="projects">
-  <h2>{{project.prod_name | uppercase}} Details</h2>
-  <div><span>Description: </span>{{project.prod_desc}}</div>
-  <div><span>Price: </span>{{project.prod_price}}</div>
-  <div><span>Update Date: </span>{{project.updated_at | date}}</div>
+  <h2>{{project.project | uppercase}} Details</h2>
+  <div><span>Description: </span>{{project.project}}</div>
+  <div><span>Start Date: </span>{{project.startDate}}</div>
+  <div><span>End Date: </span>{{project.endDate | date}}</div>
+  <div><span>Priority: </span>{{project.priority}}</div>
   <div>
-    <button routerLink="/project-edit/{{project._id}}">
+    <button routerLink="/project-edit/{{project.projectId}}">
       Edit
     </button>
   </div>

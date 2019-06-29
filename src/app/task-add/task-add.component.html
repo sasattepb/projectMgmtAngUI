@@ -1,0 +1,67 @@
+<h2>Project Manager</h2>
+
+<div>
+ 
+  <button (click)="addProject()">
+    Add Project
+  </button>  
+  <button (click)="addUser()">
+    Add User
+  </button>   
+  <button (click)="viewTask()">
+    View Task
+  </button> 
+    
+</div>
+
+<div>
+  <h2>Add Task</h2>
+  <div>
+   <label>Parent Id:
+      <input [(ngModel)]="taskData.parentId" placeholder="Parent Id"/>
+    </label><br>  
+    <label>Project Id:
+      <input [(ngModel)]="taskData.projectId" placeholder="Project Id"/>
+    </label><br>
+   <label>Task:
+      <input [(ngModel)]="taskData.task" placeholder="Task"/>
+    </label><br>
+    <label>Start Date:
+      <input [(ngModel)]="taskData.startDate" placeholder="Start Date"/>
+    </label><br>
+    <label>End Date:
+      <input [(ngModel)]="taskData.endDate" placeholder="End Date"/>
+    </label><br>
+    <label>Priority:
+      <input [(ngModel)]="taskData.priority" placeholder="Priority"/>
+    </label><br>  
+	  <label>Status:
+      <input [(ngModel)]="taskData.status" placeholder="Status"/>
+    </label><br>		
+  </div>
+  <br>
+  <button (click)="addTask()">Add</button>
+  <button (click)="addTask()">Reset</button>
+</div>
+<br>
+
+<table>
+  <tr>
+    <th>Parent Id</th>
+    <th>Project Id</th>
+    <th>Task</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Priority</th>
+    <th>Status</th>
+  </tr>
+  
+  <tr *ngFor="let p of tasks; let i=index;"> 
+    <td>{{p.parentId}} </td>
+    <td>{{p.projectId}} </td>
+    <td>{{p.task}} </td>
+    <td>{{p.startDate}}</td>
+    <td>{{p.endDate}}</td>
+    <td>{{p.priority}}</td>
+    <td>{{p.status}}</td>
+  </tr>

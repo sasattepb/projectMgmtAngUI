@@ -10,6 +10,10 @@ import { ProjectComponent } from './project/project.component';
 import { ProjectAddComponent } from './project-add/project-add.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { ProjectEditComponent } from './project-edit/project-edit.component';
+import { TaskComponent } from './task/task.component';
+import { TaskAddComponent } from './task-add/task-add.component';
+import { UserComponent } from './user/user.component';
+import { UserAddComponent } from './user-add/user-add.component';
 
 
 const appRoutes: Routes = [
@@ -33,6 +37,24 @@ const appRoutes: Routes = [
     component: ProjectEditComponent,
     data: { title: 'Project Edit' }
   },
+  {
+    path: 'user',
+    component: UserComponent,
+    data: { title: 'User List' }
+  },
+  {
+    path: 'user-add',
+    component: UserAddComponent,
+    data: { title: 'User Add' }
+  },{
+    path: 'task',
+    component: TaskComponent,
+    data: { title: 'Task List' }
+  },{
+    path: 'task-add',
+    component: TaskAddComponent,
+    data: { title: 'Task Add' }
+  },
   { path: '',
     redirectTo: '/projects',
     pathMatch: 'full'
@@ -46,7 +68,11 @@ const appRoutes: Routes = [
     ProjectComponent,
     ProjectAddComponent,
     ProjectDetailComponent,
-    ProjectEditComponent
+    ProjectEditComponent,
+    TaskComponent,
+    TaskAddComponent,
+    UserComponent,
+    UserAddComponent
   ],
   imports: [
     HttpModule,

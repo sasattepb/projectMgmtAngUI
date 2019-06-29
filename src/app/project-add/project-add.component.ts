@@ -9,22 +9,42 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProjectAddComponent implements OnInit {
 
-  @Input() projectData = { prod_name:'', prod_desc: '', prod_price: 0 };
-
+  @Input() projectData = { project:'', startDate: '', endDate: '', priority: 0 };
+  projects:any = [];
   constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.getprojects();
   }
+
+  getprojects() {
+    this.projects = [];
+    this.rest.getProjects().subscribe((data: {}) => {
+      console.log(data);
+      this.projects = data;
+    });
+  }
+
 
   addProject() {
     this.rest.addProject(this.projectData).subscribe((result) => {
-      this.router.navigate(['/project-details/'+result._id]);
+      //this.router.navigate(['/project-details/'+result.projectId]);
+      this.getprojects();
     }, (err) => {
       console.log(err);
     });
   }
 
   addTask() {
-    this.router.navigate(['/project-add']);
+    this.router.navigate(['/task-add']);
   }
+
+  addUser() {
+    this.router.navigate(['/user-add']);
+  }
+
+  viewTask() {
+    this.router.navigate(['/task']);
+  }   
+    
 }

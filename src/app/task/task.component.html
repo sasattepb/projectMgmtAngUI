@@ -1,12 +1,9 @@
 <h2>Project Manager</h2>
 
 <div>
-  <button (click)="addProj()">
+  <button (click)="addProject()">
     Add Project
   </button>
-  <button (click)="addTask()">
-    Add Task
-  </button>  
   <button (click)="addUser()">
     Add User
   </button>   
@@ -19,17 +16,23 @@
 
   <table>
     <tr>
-      <th>Project</th>
+      <th>Parent Id</th>
+      <th>Project Id</th>
+      <th>Task</th>
       <th>Start Date</th>
       <th>End Date</th>
       <th>Priority</th>
+      <th>Status</th>
     </tr>
     
-    <tr *ngFor="let p of projects; let i=index;"> 
-      <td>{{p.project}} </td>
-         <td>{{p.startDate}}</td>
+    <tr *ngFor="let p of tasks; let i=index;"> 
+      <td>{{p.parentId}} </td>
+      <td>{{p.projectId}} </td>
+      <td>{{p.task}} </td>
+      <td>{{p.startDate}}</td>
       <td>{{p.endDate}}</td>
       <td>{{p.priority}}</td>
+      <td>{{p.status}}</td>
     </tr>
   
     </table>

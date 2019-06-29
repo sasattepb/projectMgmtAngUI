@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable} from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
+//import { userInfo } from 'os';
 
 @Injectable()
 export class RestService {
@@ -42,6 +43,46 @@ export class RestService {
     return this.http.delete<any>(endpoint + 'Project/' + id, httpOptions).pipe(
       tap(_ => console.log(`deleted Project id=${id}`)),
       catchError(this.handleError<any>('deleteProject'))
+    );
+  }
+
+  getTasks(): Observable<any> {
+    return this.http.get(endpoint + 'Task').pipe(
+      map(this.extractData));
+  }
+  
+  addTask (Task): Observable<any> {
+    console.log(Task);
+    return this.http.post<any>(endpoint + 'Task', JSON.stringify(Task), httpOptions).pipe(
+      tap((Task) => console.log(`added Task w/ id=${Task.taskId}`)),
+      catchError(this.handleError<any>('addTask'))
+    );
+  }
+
+  deleteTask (id): Observable<any> {
+    return this.http.delete<any>(endpoint + 'Task/' + id, httpOptions).pipe(
+      tap(_ => console.log(`deleted task id=${id}`)),
+      catchError(this.handleError<any>('deleteTask'))
+    );
+  }
+
+  getUsers(): Observable<any> {
+    return this.http.get(endpoint + 'User').pipe(
+      map(this.extractData));
+  }
+  
+  addUser (User): Observable<any> {
+    console.log(User);
+    return this.http.post<any>(endpoint + 'User', JSON.stringify(User), httpOptions).pipe(
+      tap((Task) => console.log(`added User w/ id=${User.userId}`)),
+      catchError(this.handleError<any>('addUser'))
+    );
+  }
+
+  deleteUser (id): Observable<any> {
+    return this.http.delete<any>(endpoint + 'User/' + id, httpOptions).pipe(
+      tap(_ => console.log(`deleted user id=${id}`)),
+      catchError(this.handleError<any>('deleteUser'))
     );
   }
 

@@ -14,7 +14,7 @@ export class ProjectDetailComponent implements OnInit {
   constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.rest.getProject(this.route.snapshot.params['id']).subscribe((data: {}) => {
+    this.rest.getProject(this.route.snapshot.params['projectId']).subscribe((data: {}) => {
       console.log(data);
       this.project = data;
     });

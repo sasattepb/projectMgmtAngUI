@@ -1,0 +1,34 @@
+<h2>Project Manager</h2>
+
+<div>
+  <button (click)="addProj()">
+    Add Project
+  </button>
+  <button (click)="addTask()">
+    Add Task
+  </button>  
+  <button (click)="addTask()">
+    View Task
+  </button> 
+    
+</div>
+<br>
+
+  <table>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Employee Id</th>
+      <th>Project Id</th>
+	  <th>Task Id</th>
+    </tr>
+    
+    <tr *ngFor="let p of users; let i=index;"> 
+      <td>{{p.firstName}} </td>
+         <td>{{p.lastName}}</td>
+      <td>{{p.employeeId}}</td>
+      <td>{{p.projectId}}</td>
+	   <td>{{p.taskId}}</td>
+    </tr>
+  
+    </table>

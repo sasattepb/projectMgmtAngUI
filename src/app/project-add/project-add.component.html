@@ -8,7 +8,7 @@
   <button (click)="addUser()">
     Add User
   </button>   
-  <button (click)="addTask()">
+  <button (click)="viewTask()">
     View Task
   </button> 
     
@@ -34,16 +34,21 @@
   <button (click)="addProject()">Add</button>
   <button (click)="addProject()">Reset</button>
 </div>
+<br>
 
-<ul class="projects">
-  <li *ngFor="let p of projects; let i=index;">
-    <a routerLink="/project-details/{{p.projectId}}">
-      <span class="badge">{{i+1}}</span> {{p.project}}
-      <span class="badge">{{i+1}}</span> {{p.startDate}}
-      <span class="badge">{{i+1}}</span> {{p.endDate}}
-      <span class="badge">{{i+1}}</span> {{p.priority}}
-    </a>
-    <button class="delete" title="delete project"
-      (click)="delete(p.projectId)">x</button>
-  </li>
-</ul>
+<table>
+  <tr>
+    <th>Project</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Priority</th>
+  </tr>
+  
+  <tr *ngFor="let p of projects; let i=index;"> 
+    <td>{{p.project}} </td>
+       <td>{{p.startDate}}</td>
+    <td>{{p.endDate}}</td>
+    <td>{{p.priority}}</td>
+  </tr>
+
+  </table>

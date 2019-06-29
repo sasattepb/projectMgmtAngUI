@@ -3,44 +3,46 @@ import { RestService } from '../rest.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-project',
-  templateUrl: './project.component.html',
-  styleUrls: ['./project.component.css']
+  selector: 'app-task',
+  templateUrl: './task.component.html',
+  styleUrls: ['./task.component.css']
 })
-export class ProjectComponent implements OnInit {
-
-  projects:any = [];
+export class TaskComponent implements OnInit {
+  tasks:any = [];
 
   constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) { }
 
+
   ngOnInit() {
-    this.getprojects();
+    this.gettasks();
   }
 
-  getprojects() {
-    this.projects = [];
-    this.rest.getProjects().subscribe((data: {}) => {
+  
+  gettasks() {
+    this.tasks = [];
+    this.rest.getTasks().subscribe((data: {}) => {
       console.log(data);
-      this.projects = data;
+      this.tasks = data;
     });
   }
 
-  addProj() {
-    this.router.navigate(['/project-add']);
+  addTask() {
+    this.router.navigate(['/task-add']);
   }
 
   delete(id) {
-    this.rest.deleteProject(id)
+    this.rest.deleteTask(id)
       .subscribe(res => {
-          this.getprojects();
+          this.gettasks();
         }, (err) => {
           console.log(err);
         }
       );
   }
 
-  addTask() {
-    this.router.navigate(['/task-add']);
+  
+  addProject() {
+    this.router.navigate(['/project-add']);
   }
 
   addUser() {

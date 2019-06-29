@@ -1,0 +1,59 @@
+<h2>Project Manager</h2>
+
+<div>
+  <button (click)="addProject()">
+    Add Project
+  </button>
+  <button (click)="addTask()">
+    Add Task
+  </button>  
+  <button (click)="viewTask()">
+    View Task
+  </button> 
+    
+</div>
+
+<div>
+  <h2>Add User</h2>
+  <div>
+    <label>First Name:
+      <input [(ngModel)]="userData.firstName" placeholder="First Name"/>
+    </label><br>
+    <label>Last Name:
+      <input [(ngModel)]="userData.lastName" placeholder="Last name"/>
+    </label><br>
+    <label>Employee Id:
+      <input [(ngModel)]="userData.employeeId" placeholder="Employee Id"/>
+    </label><br>
+    <label>Project Id:
+      <input [(ngModel)]="userData.projectId" placeholder="Project Id"/>
+    </label><br>  
+    <label>Task Id:
+      <input [(ngModel)]="userData.taskId" placeholder="Task Id"/>
+    </label><br>       
+  </div>
+  <br>
+  <button (click)="addUser()">Add</button>
+  <button (click)="addUser()">Reset</button>
+</div>
+<br>
+
+
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Employee Id</th>
+    <th>Project Id</th>
+  <th>Task Id</th>
+  </tr>
+  
+  <tr *ngFor="let p of users; let i=index;"> 
+    <td>{{p.firstName}} </td>
+       <td>{{p.lastName}}</td>
+    <td>{{p.employeeId}}</td>
+    <td>{{p.projectId}}</td>
+   <td>{{p.taskId}}</td>
+  </tr>
+
+   </table>
